@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Bell, CheckCircle2, ChevronDown } from 'lucide-react';
+import DashboardTabs from './DashboardTabs';
 import './Header.css';
 
 export default function Header() {
@@ -16,6 +17,8 @@ export default function Header() {
   return (
     <header className="app-header">
       <div className="header-right">
+        {/* Dashboard Tabs */}
+        <DashboardTabs />
         {/* Notification Bell */}
         <div className="notification-dropdown-container">
           <button
