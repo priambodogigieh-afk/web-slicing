@@ -15,11 +15,14 @@ import {
   FileText,
   BarChart3,
   UserCheck,
-  ChevronRight
+  X,
+  Menu
 } from 'lucide-react';
 import './Sidebar.css';
 
 export default function Sidebar({ activeTab, setActiveTab }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const mainNavItems = [
     { name: 'Dashboard', icon: LayoutDashboard },
     { name: 'Cashier', icon: ShoppingCart, badge: '12' },
@@ -43,11 +46,31 @@ export default function Sidebar({ activeTab, setActiveTab }) {
     { name: 'Units', icon: Scale },
   ];
 
+  const handleNavClick = (tab) => {
+    setActiveTab && setActiveTab(tab);
+    setMobileOpen(false);
+  };
+
   return (
-    <aside className="sidebar">
-      {/* Brand Header */}
-      <div className="sidebar-brand">
-        <div className="brand-logo-container">
+    <>
+      {/* Hamburger button — mobile only */}
+      <button
+        className="hamburger-btn"
+        onClick={() => setMobileOpen(true)}
+        aria-label="Open menu"
+      >
+        <Menu size={22} />
+      </button>
+
+      {/* Overlay */}
+      {mobileOpen && (
+        <div className="sidebar-overlay" onClick={() => setMobileOpen(false)} />
+      )}
+
+      {/* Sidebar */}
+      <aside className={`sidebar ${mobileOpen ? 'sidebar-open' : ''}`}>
+        {/* Brand Header */}
+        <div className="sidebar-brand">
           <div className="brand-logo-seal">
             <svg viewBox="0 0 40 40" className="brand-logo-svg" fill="none">
               <defs>
@@ -62,58 +85,63 @@ export default function Sidebar({ activeTab, setActiveTab }) {
               <circle cx="20" cy="20" r="4" fill="#ffffff" />
             </svg>
           </div>
+          <div className="brand-text-container">
+            <h2 className="brand-title">COLEGIO DE SANTA RITA</h2>
+            <span className="brand-subtitle">POS & Enterprise Suite</span>
+          </div>
+          {/* Close button — mobile only */}
+          <button
+            className="sidebar-close-btn"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close menu"
+          >
+            <X size={18} />
+          </button>
         </div>
-        <div className="brand-text-container">
-          <h2 className="brand-title">COLEGIO DE SANTA RITA</h2>
-          <span className="brand-subtitle">POS & Enterprise Suite</span>
+
+        {/* Menu List */}
+        <div className="sidebar-menu">
+          <div className="menu-group-label">MAIN NAVIGATION</div>
+          <ul className="nav-list">
+            {mainNavItems.map((item, idx) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.name;
+              return (
+                <li key={`main-${idx}`}>
+                  <button
+                    className={`sidebar-nav-btn ${isActive ? 'active' : ''}`}
+                    onClick={() => handleNavClick(item.name)}
+                  >
+                    <Icon size={16} className="nav-icon" />
+                    <span className="nav-text">{item.name}</span>
+                    {item.badge && <span className="nav-badge">{item.badge}</span>}
+                    {isActive && <span className="active-indicator-glow"></span>}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="menu-group-label">INVENTORY</div>
+          <ul className="nav-list">
+            {inventoryNavItems.map((item, idx) => {
+              const Icon = item.icon;
+              const isActive = activeTab === `inv-${item.name}`;
+              return (
+                <li key={`inv-${idx}`}>
+                  <button
+                    className={`sidebar-nav-btn ${isActive ? 'active' : ''}`}
+                    onClick={() => handleNavClick(`inv-${item.name}`)}
+                  >
+                    <Icon size={16} className="nav-icon" />
+                    <span className="nav-text">{item.name}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-      </div>
-
-
-      {/* Menu List */}
-      <div className="sidebar-menu">
-        <div className="menu-group-label">MAIN NAVIGATION</div>
-        <ul className="nav-list">
-          {mainNavItems.map((item, idx) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.name;
-            return (
-              <li key={`main-${idx}`}>
-                <button
-                  className={`sidebar-nav-btn ${isActive ? 'active' : ''}`}
-                  onClick={() => setActiveTab(item.name)}
-                >
-                  <Icon size={16} className="nav-icon" />
-                  <span className="nav-text">{item.name}</span>
-                  {item.badge && <span className="nav-badge">{item.badge}</span>}
-                  {isActive && <span className="active-indicator-glow"></span>}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="menu-group-label">INVENTORY</div>
-        <ul className="nav-list">
-          {inventoryNavItems.map((item, idx) => {
-            const Icon = item.icon;
-            const isActive = activeTab === `inv-${item.name}`;
-            return (
-              <li key={`inv-${idx}`}>
-                <button
-                  className={`sidebar-nav-btn ${isActive ? 'active' : ''}`}
-                  onClick={() => setActiveTab(`inv-${item.name}`)}
-                >
-                  <Icon size={16} className="nav-icon" />
-                  <span className="nav-text">{item.name}</span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-
-    </aside>
+      </aside>
+    </>
   );
 }

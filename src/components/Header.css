@@ -1,16 +1,23 @@
 .app-header {
-  height: 72px;
+  height: 64px;
   background-color: var(--bg-sidebar);
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   gap: 1rem;
   position: sticky;
   top: 0;
   z-index: 20;
   backdrop-filter: blur(12px);
+}
+
+/* On mobile, push header content right to make room for hamburger */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 1rem 0 4rem;
+  }
 }
 
 .terminal-status-chip {
@@ -287,6 +294,12 @@
 .profile-info {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 400px) {
+  .profile-info {
+    display: none;
+  }
 }
 
 .profile-name {
