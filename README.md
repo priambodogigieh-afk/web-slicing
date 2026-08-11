@@ -29,7 +29,7 @@
 
 | Dashboard Overview |
 |---|
-| ![Dashboard](https://placehold.co/900x450/f2f5fa/ef4444?text=POS+Dashboard+Preview&font=raleway) |
+| ![Dashboard](public/preview.png) |
 
 ---
 
