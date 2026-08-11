@@ -15,7 +15,6 @@ import {
   FileText,
   BarChart3,
   UserCheck,
-  Zap,
   ChevronRight,
   HardDrive
 } from 'lucide-react';
@@ -71,13 +70,6 @@ export default function Sidebar({ activeTab, setActiveTab }) {
         </div>
       </div>
 
-      {/* Quick Action Button */}
-      <div className="sidebar-action-container">
-        <button className="new-sale-btn">
-          <Zap size={15} />
-          <span>New Terminal Order</span>
-        </button>
-      </div>
 
       {/* Menu List */}
       <div className="sidebar-menu">
