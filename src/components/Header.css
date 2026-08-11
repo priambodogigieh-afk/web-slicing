@@ -1,0 +1,306 @@
+.app-header {
+  height: 72px;
+  background-color: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  gap: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+}
+
+.terminal-status-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-success-bg);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  box-shadow: 0 0 8px var(--color-success);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.terminal-status-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-success);
+}
+
+.header-search-bar {
+  flex: 1;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+  transition: all var(--transition-fast);
+}
+
+.header-search-bar:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.search-icon {
+  color: var(--text-muted);
+}
+
+.search-input {
+  border: none;
+  background: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-shortcut {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quick-ai-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--color-primary);
+  font-size: 0.775rem;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.quick-ai-btn:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+}
+
+.ai-icon {
+  color: var(--color-primary);
+}
+
+.header-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.header-icon-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-card-hover);
+  border-color: var(--text-muted);
+}
+
+.notification-ping {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 6px var(--color-primary);
+}
+
+.notification-dropdown-container {
+  position: relative;
+}
+
+.notification-popover {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 320px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  z-index: 30;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popover-header {
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.popover-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.popover-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color var(--transition-fast);
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item:hover {
+  background-color: var(--bg-card-hover);
+}
+
+.notif-check-icon {
+  color: var(--color-success);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.notif-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.notif-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notif-item-title {
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.notif-item-time {
+  font-size: 0.675rem;
+  color: var(--text-muted);
+}
+
+.notif-item-desc {
+  font-size: 0.725rem;
+  color: var(--text-secondary);
+}
+
+.user-profile-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0.65rem 0.35rem 0.35rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.user-profile-pill:hover {
+  border-color: var(--color-primary);
+  background-color: var(--bg-card-hover);
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary-gradient);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.profile-role {
+  font-size: 0.675rem;
+  color: var(--text-muted);
+}
+
+.profile-chevron {
+  color: var(--text-muted);
+}

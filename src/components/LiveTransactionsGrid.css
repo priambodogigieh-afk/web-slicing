@@ -1,0 +1,160 @@
+.live-trx-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.trx-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trx-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.trx-main-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.view-all-link {
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  transition: opacity var(--transition-fast);
+}
+
+.view-all-link:hover {
+  opacity: 0.8;
+}
+
+.trx-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.trx-item-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-app);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.trx-item-card:hover {
+  border-color: var(--color-primary);
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.trx-item-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trx-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+}
+
+.trx-title-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trx-customer-name {
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.trx-id-tag {
+  font-size: 0.675rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background-color: var(--bg-card);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.trx-items-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.trx-time-sub {
+  font-size: 0.675rem;
+  color: var(--text-muted);
+}
+
+.trx-item-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.trx-amount-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.trx-amount-text {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.payment-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.675rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  background-color: var(--bg-card);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+}
+
+.print-receipt-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.print-receipt-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
