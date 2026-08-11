@@ -15,8 +15,7 @@ import {
   FileText,
   BarChart3,
   UserCheck,
-  ChevronRight,
-  HardDrive
+  ChevronRight
 } from 'lucide-react';
 import './Sidebar.css';
 
@@ -114,20 +113,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
         </ul>
       </div>
 
-      {/* Bottom Health Widget */}
-      <div className="sidebar-footer-widget">
-        <div className="widget-header">
-          <HardDrive size={14} className="widget-icon" />
-          <span className="widget-title">Database Storage</span>
-        </div>
-        <div className="widget-progress-bg">
-          <div className="widget-progress-fill" style={{ width: '42%' }}></div>
-        </div>
-        <div className="widget-footer-text">
-          <span>4.2 GB / 10 GB</span>
-          <span className="text-success">Optimal</span>
-        </div>
-      </div>
+
     </aside>
   );
 }
