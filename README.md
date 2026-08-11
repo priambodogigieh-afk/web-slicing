@@ -37,16 +37,9 @@
 
 ```
 src/
-├── components/
-│   ├── Sidebar.jsx            # Left navigation sidebar
-│   ├── Header.jsx             # Top header bar
-│   ├── StatCards.jsx          # 4 KPI summary cards
-│   ├── DailySellingChart.jsx  # SVG line chart
-│   ├── LatestTransactions.jsx # Transaction table
-│   ├── PopularProducts.jsx    # Popular products table
-│   └── StockReceiptIssued.jsx # Stock movement table
-├── App.js                     # Root layout
-└── index.css                  # Global CSS variables & base styles
+├── components/      # UI components (Sidebar, Header, Charts, Tables)
+├── App.js           # Root layout
+└── index.css        # Global styles & CSS variables
 ```
 
 ---
